@@ -1,0 +1,87 @@
+Here is the complete, non-truncated compilation of questions, answers (working Python code), and comments for the requested pages: **34, 38, 39, 40, 41, 42, 43, 44, 50, 51, 52, 53, 54, 56, 58, 59, 60, 61, 65, 66, and 67** from your notes and reference file [oops.py](file:///c:/Users/anilk/Desktop/Qspiders/python/oops.py).
+
+*Note: Code snippets have been corrected where syntax/type errors occurred in your notes (such as attempting to return `self` from `__init__`, which is disallowed in Python).*
+
+---
+
+### Page 34 – Constructor Chaining
+*   **Question:** Write a program to demonstrate constructor chaining with and without `super()`.
+*   **Answer:**
+    ```python
+    # Without super()
+    class Parent:
+        def __init__(self):
+            print("Parent Constructor")
+
+    class Child(Parent):
+        def __init__(self):
+            # Explicit call using Parent class name
+            Parent.__init__(self)
+            print("Child Constructor")
+
+    # With super()
+    class ParentSuper:
+        def __init__(self):
+            print("Parent Constructor (super)")
+
+    class ChildSuper(ParentSuper):
+        def __init__(self):
+            # Dynamic look up via super()
+            super().__init__()
+            print("Child Constructor (super)")
+
+    print("--- Explicit Parent call ---")
+    c = Child()
+    print("\n--- super() call ---")
+    cs = ChildSuper()
+    ```
+*   **Comments:** 
+    *   Constructor chaining ensures that base class parameters/setup logic run before child initialization.
+    *   Using `super().__init__()` is preferred as it dynamically resolved the hierarchy based on Method Resolution Order (MRO), which is essential in multiple inheritance.
+    *   References: [Parent_Chain](file:///c:/Users/anilk/Desktop/Qspiders/python/oops.py#L743), [Child_Chain](file:///c:/Users/anilk/Desktop/Qspiders/python/oops.py#L748), [Parent_Super](file:///c:/Users/anilk/Desktop/Qspiders/python/oops.py#L763), [Child_Super](file:///c:/Users/anilk/Desktop/Qspiders/python/oops.py#L768).
+
+---
+
+### Page 38 – Method Chain
+<truncated 23545 bytes>
+balance = balance
+
+        def display(self):
+            print(f"Name: {self.name}, Balance: {self.balance}")
+
+    class SavingsAccount(BankAccount):
+        def __init__(self, name, balance, interest_rate):
+            super().__init__(name, balance)
+            self.interest_rate = interest_rate
+
+        def display(self):
+            super().display()
+            print(f"Interest Rate: {self.interest_rate}%")
+
+    class CurrentAccount(BankAccount):
+        def __init__(self, name, balance, overdraft_limit):
+            super().__init__(name, balance)
+            self.overdraft_limit = overdraft_limit
+
+        def display(self):
+            super().display()
+            print(f"Overdraft Limit: {self.overdraft_limit}")
+
+    s = SavingsAccount("Ramesh", 80000, 6)
+    c = CurrentAccount("Suresh", 150000, 20000)
+
+    s.display()
+    print()
+    c.display()
+    ```
+*   **Comments:** 
+    *   References: [Parent_Batch2_HI](file:///c:/Users/anilk/Desktop/Qspiders/python/oops.py#L1081).
+
+---
+
+### Summary of Actions Taken
+1. **Analysed Workspace**: Listed the directory structure to identify files (`oops.pdf` and `oops.py`).
+2. **Scanned PDF Structure**: Wrote a python script [scan_all_pages.py](file:///C:/Users/anilk/.gemini/antigravity-ide/brain/4cd367e0-6f40-48ba-84e1-711e243b7f00/scratch/scan_all_pages.py) to check the text layers of `oops.pdf`. Verified pages 27–67 consist entirely of scanned images (extracted text length is 0), which explains the corruption.
+3. **Structured Reference Mapping**: Wrote [analyze_oops_structure.py](file:///C:/Users/anilk/.gemini/antigravity-ide/brain/4cd367e0-6f40-48ba-84e1-711e243b7f00/scratch/analyze_oops_structure.py) and mapped comments from `oops.py` to compile the corresponding pages and topics.
+4. **Code Quality Review**: Corrected the method chaining examples (repaired constructor signature returning `self`).
+5. **Formatted Output**: Reconstructed all requested pages sequentially, linking symbols directly to [oops.py](file:///c:/Users/anilk/Desktop/Qspiders/python/oops.py).
